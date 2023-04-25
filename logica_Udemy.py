@@ -42,4 +42,4 @@ B = 8.0
 h = 5.0
 area = (b + B) / 2 * h
 print(f"O calculo da area (b + B) / 2 * h, com os valores de b={b}, B={B} e h={h}, tem resultado = {area:.0f}")
-#Passagem de valores entre variaveis de TIPOS diferentes
+
