@@ -1,45 +1,137 @@
 #Logica Basica
-#Variaveis
-varInteiro = 10
-varString = "Reiniciando a lógica!"
-#Entrada - Atribuição INTERNA
-print("Exemplos de variaveis recebendo atribuição interna:")
-print(f"variavel Inteiro = {varInteiro}")
-varInteiro = 5
-print(f"Agora variavel Inteiro foi redefinida para = {varInteiro}")
-#Entrada - Atribuição EXTERNA, do usuario para a maquina
-#Neste exemplo o programa faz uma leitura do teclado e armazena em uma variável string de nome "nome1"
-nome1 = input("Digite seu nome: ")
-#Saida - Da maquina para o usuario
-#Neste exemplo o progrma mostra na tela o conteúdo da variável "nome1"
-print('-------------------------')
-print(nome1)
-print('-------------------------')
-#Operações basicas entre variáveis
-varInteiro = varInteiro + 10
-n1 = 5
-n2 = 10
-n3 = 20
-n4 = 2
-n5 = 3
-print(f"O valor da variavel varInteiro era 10 e depois de adicionados mais 10, ficou = {varInteiro}")
-print(f"Iniciamos as variaveis n1, n2 e n3 com os valores {n1}, {n2} e {n3}")
-#Adição +
-print(f"Agora vamos somar {n1} + {n2} + {n3} = {n1 + n2 + n3}")
-#Subtração -
-print(f"Agora vamos subtrair {n3} - {n2} = {n3 - n2}")
-#Multiplicação *
-print(f"Agora vamos multiplicar {n1} * {n2} = {n1 * n2}")
-#Divisão com resultado REAL /
-print(f"Agora vamos dividir, resultado em REAL, {n3} / {n1} = {n3 / n1}")
-#Divisão com resultado INTEIRO  //
-print(f"Agora vamos dividir, resultado em INTEIRO, {n2} // {n1} = {n2 // n1}")
-#Potencialização **
-print(f"Agora vamos elevar {n5} ** {n4} = {n5 ** n4}")
-#Exemplo de uma expressao numerica do calculo da area sendo b+B / 2 * h
-b = 6.0
-B = 8.0
-h = 5.0
-area = (b + B) / 2 * h
-print(f"O calculo da area (b + B) / 2 * h, com os valores de b={b}, B={B} e h={h}, tem resultado = {area:.0f}")
+import math
 
+def primeirosPassos():
+    #Variaveis
+    varInteiro = 10
+    varString = "Reiniciando a lógica!"
+    #Entrada - Atribuição INTERNA
+    print("Exemplos de variaveis recebendo atribuição interna:")
+    print(f"variavel Inteiro = {varInteiro}")
+    varInteiro = 5
+    print(f"Agora variavel Inteiro foi redefinida para = {varInteiro}")
+    #Entrada - Atribuição EXTERNA, ou LEITURA, acontece do usuario para a maquina
+    #Neste exemplo o programa faz uma leitura do teclado e armazena em uma variável string de nome "nome1"
+    nome1 = input("Digite seu nome: ")
+    #Saida - Acontece da maquina para o usuario
+    #Neste exemplo o progrma mostra na tela o conteúdo da variável "nome1"
+    print('-------------------------')
+    print(nome1)
+    print('-------------------------')
+
+def operacoes():
+    #Operações basicas entre variáveis
+    n1 = 5
+    n2 = 10
+    n3 = 20
+    n4 = 2
+    n5 = 3
+    #Adição +
+    print(f"Agora vamos somar {n1} + {n2} + {n3} = {n1 + n2 + n3}")
+    #Subtração -
+    print(f"Agora vamos subtrair {n3} - {n2} = {n3 - n2}")
+    #Multiplicação *
+    print(f"Agora vamos multiplicar {n1} * {n2} = {n1 * n2}")
+    #Divisão com resultado REAL /
+    print(f"Agora vamos dividir, resultado em REAL, {n3} / {n1} = {n3 / n1}")
+    #Divisão com resultado INTEIRO  //
+    print(f"Agora vamos dividir, resultado em INTEIRO, {n2} // {n1} = {n2 // n1}")
+    #Potencialização **
+    print(f"Agora vamos elevar {n5} ** {n4} = {n5 ** n4}")
+    #Raiz função math.sqrt() ou x ** 0.5
+    x = 25
+    print(f'A raiz quadrada de {x} é {x**0.5}')
+    #Valor absoluto de um número, exemplo: -5 = 5
+    print(f'O valor absoluto de -1 = {abs(-1)}')
+    #Valor de PI
+    pi = math.pi
+    print(f'O valor de PI = {pi}')
+
+
+def calculoSeno():
+    #Exemplo de uma expressao numerica do calculo da area sendo b+B / 2 * h
+    b = 6.0
+    B = 8.0
+    h = 5.0
+    area = (b + B) / 2 * h
+    print(f"O calculo da area (b + B) / 2 * h, com os valores de b={b}, B={B} e h={h}, tem resultado = {area:.0f}")
+
+def estructCondicionais():
+    #CAPITOLO 04 - Estruturas Condicionais
+    #Expressões comparativas
+    x = 5
+    print('EXPRESSOES COMPARATIVAS')
+    print(f'Para x= {x}\nx é maior que 0 => {x > 0}')
+    print(f'x é igual a 0 => {x == 0}')
+    print(f'x é menor ou igual a 0 => {x <= 0}')
+    print(f'x é diferente de 0 => {x != 0}')
+
+    print('EXPRESSOES LOGICAS')
+    print('Tabela VERDADE do operador E (AND)\nConsidere V= Verdadeiro e F= Falso')
+    print('V AND V = ', True and True)
+    print('V AND F = ', True and False)
+    print('V AND F = ', False and True)
+    print('F AND F = ', False and True)
+    print('F AND F AND V = ', False and False and True)
+
+    print('Tabela VERDADE do operador OU (OR)')
+    print('V OR V = ', True or True)
+    print('V OR F = ', True or False)
+    print('F OR V = ', False or True)
+    print('F OR F = ', False or False)
+
+    print('Tabela VERDADE do operador NÃO (NOT)')
+    print('Não V = ', not True)
+    print('Não F = ', not False)
+    print('Não V AND F = ', not (True and False))
+    print('Não F AND F = ', not (False and False))
+    print('Não V OU F = ', not (True or False))
+    print('Não V OU V = ', not (True or True))
+    
+    #Estrutura condicional SIMPLES - SE (IF)
+    #Conceito: if <condicao>:<comando> - Se a <condicao> for V então executa <comando>, caso contrário ignora <comando>
+    print('Estrutura condicional SIMPLES - IF')
+    if (x > 1):
+        print(f'Neste caso x[{x}] é maior que 1') # Somente mostrado se o valor de x for maior que 1
+    #Exemplo SAUDAÇÃO - Leia que horas são e:
+    #  se for entre 0 e 12 mostre "Bom dia!"
+    #  se for entre 13 e 18 mostre "Boa tarde!"
+    #  se for entre 19 e 23 mostre "Boa noite!" 
+    horario = int(input('Informe que horas são agora: (H) ')) 
+    if ((horario >= 0) and (horario <=12)):
+        print('Bom dia!')
+    if ((horario >= 13) and (horario <=18)):
+        print('Bom tarde!')
+    if ((horario >= 19) and (horario <=23)):
+        print('Bom noite!')
+    #Estrutura condicional COMPOSTA - SENÃO (ELSE)
+    #Conceito: Se não for satisfeito a primeira condição, então executa o segundo comando
+    #   if <condicao>:
+    #       <comando1>
+    #   else:
+    #       <comando2>
+    # Se a <condicao> for V então executa <comando1>, caso contrário executa <comando2>
+    x = 1
+    print('Estrutura condicional COMPOSTA - IF ELSE')
+    if x==1:
+        print('Condição do SE, para x==1')
+    else:
+        print('Condição do SENÃO, para x==1')
+    # Existe ainda a Estrutura condicional composta SENÃO SE (ELIF)
+    #Conceito: Se não for satisfeito a condição1, então executa-se um novo teste com a condição2 e caso seja satisfeito, executa o comando2 porém se ainda não for satisfeito executa o comando3
+    #   if <condicao1>:
+    #       <comando1>
+    #   elif <condicao2>:
+    #       <comando2>
+    #   else:
+    #       <comando3>
+    # Se a <condicao1> for V então executa <comando1>, caso contrário verifica <condicao2>, então se a 2 for V executa <comando2> e se for F executa o <comando3>
+    print('Estrutura condicional COMPOSTA - IF ELIF ELSE')
+    if x==1:
+        print('Condição1 Verdadeira para x==1 ')
+    elif x==2:
+        print('Condição2 Verdadeira para x==2 ')
+    else:
+        print('SENÃO, onde x é diferente de 1 e de 2')
+
+estructCondicionais()
