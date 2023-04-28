@@ -47,5 +47,191 @@ def exerc3():
                 else:
                     print(valor2)
 
+def exerc4():
+    #Exercicio 4 - OPERADORA - Uma operadora de telefonia cobra R$ 50.00 por um plano básico que dá direito a 100 minutos de telefone. 
+    #   Cada minuto que exceder a franquia de 100 minutos custa R$ 2.00. 
+    #   Fazer um programa para ler a quantidade de minutos que uma pessoa consumiu, daí mostrar o valor a ser pago. 
+    plan_Basic = 50.00
+    valor_min_Extra = 2.00
+    franquia = 100
+    valor = plan_Basic
+    qtd_Min_Gastos = int(input('Digite a quantidade de minutos: '))
+    
+    if qtd_Min_Gastos > franquia:
+        valor += ((qtd_Min_Gastos - franquia) * valor_min_Extra)
 
-exerc3()
+    print(f'Valor a pagar: R$ {valor:.2f}')
+
+def exerc5():
+    #Exercício 5 - TROCO VERIFICADO - Fazer um programa para calcular o troco no processo de pagamento de um produto de uma mercearia. 
+    #   O programa deve ler o preço unitário do produto, a quantidade de unidades compradas deste produto, e o valor em dinheiro dado pelo cliente. 
+    #   Seu programa deve mostrar o valor do troco a ser devolvido ao cliente. 
+    #   Se o dinheiro dado pelo cliente não for suficiente, mostrar uma mensagem informando o valor restante conforme exemplo. 
+    preco = float(input('Preço unitário do produto: R$ '))
+    quantidade = int(input('Quantidade comprada: '))
+    dinheiro_recebido = float(input('Dinheiro recebido: R$ '))
+    total = preco * quantidade
+    troco = dinheiro_recebido - total
+    if total > dinheiro_recebido:
+        print(f'DINHEIRO INSUFICIENTE. FALTAM R$ {abs(troco):.2f}')
+    else:
+        print(f'TROCO = R$ {troco:.2f}')
+
+def exerc6():
+    #Exercício 6 - GLICOSE - Fazer um programa para ler a quantidade de glicose no sangue de uma pessoa 
+    #   e depois mostrar na tela a classificação desta glicose de acordo com a tabela de referência ao lado. 
+    # |-----------------------------------------------|
+    # |- CLASSIFICACAO  | GLICOSE                    -|
+    # |-----------------------------------------------|
+    # |- Normal         | Até 100 mg/dl              -|
+    # |- Elevado        | Maior q 100 até 140 mg/dl  -|
+    # |- Diabetes       | Maior de 140 mg/dl         -|
+    # |-----------------------------------------------|
+    medida_glicose = float(input('Digite a medida da glicose: '))
+    if medida_glicose < 101:
+        situacao = 'Normal'
+    elif medida_glicose > 140:
+        situacao = 'Diabetes'
+    else:
+        situacao = 'Elevado'
+    print(f'Classificação: {situacao}')
+
+def exerc7():
+    #Exercício 7 - DARDO - No arremesso de dardo, o atleta tem três chances para lançar o dardo à maior distância que conseguir. 
+    #   Você deve criar um programa para, dadas as medidas das três tentativas de lançamento, informar qual foi a maior.
+    print('Digite as tres distâncias')
+    maior = 0
+    distancia1 = float(input('1º: '))
+    distancia2 = float(input('2º: '))
+    distancia3 = float(input('3º: '))
+    if distancia1 > distancia2 and distancia1 > distancia3:
+        maior = distancia1
+    else:
+        if distancia2 > distancia3:
+            maior = distancia2
+        else:
+            maior = distancia3
+    print(f'MAIOR DISTÂNCIA = {maior}')
+
+def exerc8():
+    #Exercício 8 - TEMPERATURA - Deseja-se converter uma medida de temperatura da escala Celsius para Fahrenheit ou vice-versa. 
+    #   Para isso, você deve construir um programa que leia a letra "C" ou "F" indicando em qual escala vai ser informada uma temperatura.
+    #   Em seguida o programa deve mostrar a temperatura na outra escala com duas casas decimais. 
+    #   A seguir é dada a fórmula para converter de Fahrenheit para Celsius (você deve deduzir a fórmula de Celsius para Fahrenheit): C = 5/9 (F - 32)
+    op_escala = input('Você vai digitar a temperatura em qual escala (C / F)? ')
+    if op_escala == 'c':
+        valor_temperatura = float(input('Digite a temperatura em Celsius: '))
+        temperatura = valor_temperatura * 1.8 + 32
+        print(f'Temperatura equivalente em Fahrenheit: {temperatura:.2f}')
+    elif op_escala == 'f':
+        escala = 'Fahrenheit'
+        valor_temperatura = float(input('Digite a temperatura em Fahrenheit: '))
+        temperatura = (valor_temperatura - 32) / 1.8
+        print(f'Temperatura equivalente em Celsius: {temperatura:.2f}')
+    else:
+        print(f'O digito [{op_escala}] está errado! Esperava-se [C ou F]')
+
+def exerc9():
+    #Exercício 9 - Uma lanchonete possui vários produtos. Cada produto possui um código e um preço. 
+    #   Você deve fazer um programa para ler o código e a quantidade comprada de um produto (suponha um código válido), e daí informar qual o valor a ser pago, 
+    #   com duas casas decimais, conforme tabela de produtos.
+    # |-----------------------------|
+    # |- CODIGO  | PREÇO PRODUTO   -|
+    # |-----------------------------|
+    # |-  1      | R$ 5.00         -|
+    # |-  2      | R$ 3.50         -|
+    # |-  3      | R$ 4.80         -|
+    # |-  4      | R$ 8.90         -|
+    # |-  5      | R$ 7.32         -|
+    # |-----------------------------|
+    codigo = int(input('Código do produto comprado: '))
+    quantidade = int(input('Quantidade comprada: '))
+    if codigo == 1:
+        valor = 5.00
+    elif codigo == 2:
+        valor = 3.50
+    elif codigo == 3:
+        valor = 4.80
+    elif codigo == 4:
+        valor = 8.90
+    elif codigo == 5:
+        valor = 7.32
+    valor = valor * quantidade
+    print(f'Valor a pagar: R$ {valor:.2f}')
+
+def exerc10():
+    #Exercício 10 - MULTIPLOS - Fazer um programa para ler dois números inteiros, e dizer se um número é múltiplo do outro. 
+    #   Os números podem ser digitados em qualquer ordem. 
+    print('Digite dois números inteiros')
+    num1 = int(input('1º Número: '))
+    num2 = int(input('2º Número: '))
+    if num1 % num2 == 0:
+        print('São multiplos')
+    elif num2 % num1 == 0:
+        print('São multiplos')
+    else:
+        print('Não são multiplos')
+
+def exerc11():
+    #Exercício 11 - AUMENTO - Uma empresa vai conceder um aumento percentual de salário aos seus funcionários dependendo de quanto cada pessoa ganha, conforme tabela.
+    #   Fazer um programa para ler o salário de uma pessoa, daí mostrar qual o novo salário desta pessoa depois do aumento, quanto foi o aumento e qual foi a porcentagem de aumento. 
+    # |------------------------------|
+    # |  Salário atual    | Aumento -|
+    # |------------------------------|
+    # |  Até 1000         | 20%     -|
+    # |  De 1000 até 3000 | 15%     -|
+    # |  De 3000 até 8000 | 10%     -|
+    # |  Acima de 8000    |  5%     -|
+    # |------------------------------|
+    salario = float(input('Digite o salário da pessoa: R$ '))
+    if salario > 8000:
+        porcentagem = 5
+    elif salario <= 1000:
+        porcentagem = 20
+    elif salario <= 3000:
+        porcentagem = 15
+    else:
+        porcentagem = 10
+        
+    aumento = salario * porcentagem / 100
+    salarioNovo = salario + aumento
+    print(f'Novo salário = R$ {salarioNovo:.2f}')
+    print(f'Aumento = R$ {aumento:.2f}')
+    print(f'Porcentagem = {porcentagem} %')
+
+def exerc12():
+    #Exercício 12 - TEMPO DE JOGO - Leia a hora inicial e a hora final de um jogo. 
+    #   A seguir calcule a duração do jogo, sabendo que o mesmo pode começar em um dia e terminar em outro, tendo uma duração mínima de 1 hora e máxima de 24 horas.
+    print('Exercicio 12 - construção') 
+    hInicial = int(input('Hora inicial: '))
+    hFinal = int(input('Hora final: '))
+    if hFinal <= hInicial:
+        duracao = 24 - hInicial + hFinal
+    else:
+        duracao = hFinal - hInicial
+    print(f'O JOGO DUROU {duracao} HORA(S)')
+
+def exerc13():
+    #Exercício 13 - COORDENADAS - Leia os valores das coordenadas X e Y de um ponto no plano cartesiano. 
+    #   A seguir, determine qual o quadrante ao qual pertence o ponto (Q1, Q2, Q3 ou Q4). 
+    #   Se o ponto estiver na origem, escreva a mensagem “Origem”. Se o ponto estiver sobre um dos eixos escreva “Eixo X” ou “Eixo Y”, conforme for a situação. 
+    x = float(input('Valor de X: '))
+    y = float(input('Valor de Y: '))
+    if x > 0 and y > 0:
+        quadrante = 'Q1'
+    elif x < 0 and y > 0:
+        quadrante = 'Q2'
+    elif x < 0 and y < 0:
+        quadrante = 'Q3'
+    elif x > 0 and y < 0:
+        quadrante = 'Q4'
+    elif x == 0 and y == 0:
+        quadrante = 'Origem'
+    elif x == 0:
+        quadrante = 'Eixo Y'
+    else:
+        quadrante = 'Eixo X'
+    
+    print(quadrante)
+
+exerc13()
