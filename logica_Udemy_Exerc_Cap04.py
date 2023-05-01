@@ -34,7 +34,7 @@ def exerc3():
     #   Em seguida, mostrar qual o menor dentre os três números lidos. Em caso de empate, mostrar apenas uma vez. 
     valor1 = 1
     while valor1 > 0:
-        print('Digite (0) ZERO para encerrar!')
+        print('Digite 3 valores e descrubra o MENOR valor - (0) ZERO para encerrar!')
         valor1 = int(input('Primeiro valor: '))
         if valor1 != 0:
             valor2 = int(input('Segundo valor: '))
