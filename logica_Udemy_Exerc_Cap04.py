@@ -234,4 +234,4 @@ def exerc13():
     
     print(quadrante)
 
-exerc13()
+exerc1()
