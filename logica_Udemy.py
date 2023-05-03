@@ -134,4 +134,43 @@ def estructCondicionais():
     else:
         print('SENÃO, onde x é diferente de 1 e de 2')
 
-estructCondicionais()
+def estructCondEscolha():
+    #Exemplo da estrutura condicional ESCOLHA
+    #Está estrutura pré-determina a escolha com base no valor de uma variável, então ela direciona de forma condicional para um determinado valor, ou comando, de retorno
+    escolha = int(input('Digite uma opção entre 1 a 7: '))
+    dia = 'DIA'
+    #Abaixo segue a estrutura do match-case:
+    # match <variavel>:
+    #   case <valor1>:
+    #       <comando1>
+    #   case <valor2>:
+    #       <comando2>
+    #   case <valor3>:
+    #       <comando3>
+    # Exemplo: 
+    match escolha:
+        case 1:
+            dia = 'SEGUNDA'
+        case 2:
+            dia = 'TERÇA'
+        case 3:
+            dia = 'QUARTA'
+        case 4:
+            dia = 'QUINTA'
+        case 5:
+            dia = 'SEXTA'
+        case 6:
+            dia = 'SABADO'
+        case 7:
+            dia = 'DOMINGO'
+
+    if escolha > 0 and escolha < 8:
+        print(f'O dia escolhido foi {dia}')
+    else:
+        print('Opção inválida!')
+
+def estructRepetitivas():
+    #Estruturas repetitivas
+    print('Estruturas Repetitivas')
+
+estructRepetitivas()

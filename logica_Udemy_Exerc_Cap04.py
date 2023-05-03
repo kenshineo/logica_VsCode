@@ -5,10 +5,9 @@ def exerc1():
     nota1 = float(input('Digite a primeira nota: '))
     nota2 = float(input('Digite a segunda nota: '))
     notaFinal = nota1 + nota2
+    print(f'NOTA FINAL = {notaFinal}')
     if notaFinal < 60:
-        print(f'NOTA FINAL = {notaFinal:.1f}\nREPROVADO')
-    else:
-        print(f'NOTA FINAL = {notaFinal}')
+        print('REPROVADO')
 
 def exerc2():
     #Exercicio 2 - BASKARA - Fazer um programa para ler os três coeficientes de uma equação do segundo grau. Usando a fórmula de Baskara, 
@@ -70,9 +69,9 @@ def exerc5():
     preco = float(input('Preço unitário do produto: R$ '))
     quantidade = int(input('Quantidade comprada: '))
     dinheiro_recebido = float(input('Dinheiro recebido: R$ '))
-    total = preco * quantidade
-    troco = dinheiro_recebido - total
-    if total > dinheiro_recebido:
+    totalCompra = preco * quantidade
+    troco = dinheiro_recebido - totalCompra
+    if totalCompra > dinheiro_recebido:
         print(f'DINHEIRO INSUFICIENTE. FALTAM R$ {abs(troco):.2f}')
     else:
         print(f'TROCO = R$ {troco:.2f}')
@@ -88,12 +87,13 @@ def exerc6():
     # |- Diabetes       | Maior de 140 mg/dl         -|
     # |-----------------------------------------------|
     medida_glicose = float(input('Digite a medida da glicose: '))
-    if medida_glicose < 101:
+    if medida_glicose <= 100:
         situacao = 'Normal'
-    elif medida_glicose > 140:
-        situacao = 'Diabetes'
-    else:
+    elif medida_glicose <= 140:
         situacao = 'Elevado'
+    else:
+        situacao = 'Diabetes'
+
     print(f'Classificação: {situacao}')
 
 def exerc7():
@@ -106,11 +106,11 @@ def exerc7():
     distancia3 = float(input('3º: '))
     if distancia1 > distancia2 and distancia1 > distancia3:
         maior = distancia1
+    elif distancia2 > distancia3:
+        maior = distancia2
     else:
-        if distancia2 > distancia3:
-            maior = distancia2
-        else:
-            maior = distancia3
+        maior = distancia3
+    
     print(f'MAIOR DISTÂNCIA = {maior}')
 
 def exerc8():
@@ -119,17 +119,17 @@ def exerc8():
     #   Em seguida o programa deve mostrar a temperatura na outra escala com duas casas decimais. 
     #   A seguir é dada a fórmula para converter de Fahrenheit para Celsius (você deve deduzir a fórmula de Celsius para Fahrenheit): C = 5/9 (F - 32)
     op_escala = input('Você vai digitar a temperatura em qual escala (C / F)? ')
-    if op_escala == 'c':
-        valor_temperatura = float(input('Digite a temperatura em Celsius: '))
-        temperatura = valor_temperatura * 1.8 + 32
-        print(f'Temperatura equivalente em Fahrenheit: {temperatura:.2f}')
-    elif op_escala == 'f':
-        escala = 'Fahrenheit'
-        valor_temperatura = float(input('Digite a temperatura em Fahrenheit: '))
-        temperatura = (valor_temperatura - 32) / 1.8
-        print(f'Temperatura equivalente em Celsius: {temperatura:.2f}')
-    else:
-        print(f'O digito [{op_escala}] está errado! Esperava-se [C ou F]')
+    match op_escala:
+        case 'c':
+            valor_temperatura = float(input('Digite a temperatura em Celsius: '))
+            temperatura = 9 * valor_temperatura / 5 + 32
+            op_escala = 'Fahrenheit'
+        case 'f':
+            valor_temperatura = float(input('Digite a temperatura em Fahrenheit: '))
+            temperatura = 5 / 9 * (valor_temperatura - 32)
+            op_escala = 'Celsius'
+
+    print(f'Temperatura equivalente em {op_escala}: {temperatura:.2f}')
 
 def exerc9():
     #Exercício 9 - Uma lanchonete possui vários produtos. Cada produto possui um código e um preço. 
@@ -146,18 +146,21 @@ def exerc9():
     # |-----------------------------|
     codigo = int(input('Código do produto comprado: '))
     quantidade = int(input('Quantidade comprada: '))
-    if codigo == 1:
-        valor = 5.00
-    elif codigo == 2:
-        valor = 3.50
-    elif codigo == 3:
-        valor = 4.80
-    elif codigo == 4:
-        valor = 8.90
-    elif codigo == 5:
-        valor = 7.32
-    valor = valor * quantidade
-    print(f'Valor a pagar: R$ {valor:.2f}')
+
+    match codigo:
+        case 1:
+            valor = 5.00
+        case 2:
+            valor = 3.50
+        case 3:
+            valor = 4.80
+        case 4:
+            valor = 8.90
+        case 5:
+            valor = 7.32
+
+    total = valor * quantidade
+    print(f'Valor a pagar: R$ {total:.2f}')
 
 def exerc10():
     #Exercício 10 - MULTIPLOS - Fazer um programa para ler dois números inteiros, e dizer se um número é múltiplo do outro. 
@@ -165,9 +168,7 @@ def exerc10():
     print('Digite dois números inteiros')
     num1 = int(input('1º Número: '))
     num2 = int(input('2º Número: '))
-    if num1 % num2 == 0:
-        print('São multiplos')
-    elif num2 % num1 == 0:
+    if num1 % num2 == 0 or num2 % num1 == 0:
         print('São multiplos')
     else:
         print('Não são multiplos')
@@ -184,14 +185,14 @@ def exerc11():
     # |  Acima de 8000    |  5%     -|
     # |------------------------------|
     salario = float(input('Digite o salário da pessoa: R$ '))
-    if salario > 8000:
-        porcentagem = 5
-    elif salario <= 1000:
+    if salario <= 1000.00:
         porcentagem = 20
-    elif salario <= 3000:
+    elif salario <= 3000.00:
         porcentagem = 15
-    else:
+    elif salario <= 8000.00:
         porcentagem = 10
+    else:
+        porcentagem = 5
         
     aumento = salario * porcentagem / 100
     salarioNovo = salario + aumento
@@ -202,7 +203,6 @@ def exerc11():
 def exerc12():
     #Exercício 12 - TEMPO DE JOGO - Leia a hora inicial e a hora final de um jogo. 
     #   A seguir calcule a duração do jogo, sabendo que o mesmo pode começar em um dia e terminar em outro, tendo uma duração mínima de 1 hora e máxima de 24 horas.
-    print('Exercicio 12 - construção') 
     hInicial = int(input('Hora inicial: '))
     hFinal = int(input('Hora final: '))
     if hFinal <= hInicial:
