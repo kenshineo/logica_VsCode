@@ -171,6 +171,25 @@ def estructCondEscolha():
 
 def estructRepetitivas():
     #Estruturas repetitivas
-    print('Estruturas Repetitivas')
+    #WHILE (Enquanto) - É uma estrutura de controle que repete um bloco de comandos enquanto uma condição for verdadeira.
+    #Ideal de se utilizar quando não se sabe previamente a quantidade de repetições que será realizada. 
+    # while <condicao>:
+    #   <comando>
+    #Por exemplo, um programa que lê números até que o usuário digite 0 (ZERO).
+    numero = 0
+    qtdNumeros = 0
+    primeiro = numero = int(input('Digite um número qualquer ou ZERO para SAIR: '))
+    soma = 0
+    ultimo = 0
+    while numero != 0:
+        soma += numero 
+        numero = int(input('Digite um número qualquer ou ZERO para SAIR: '))
+        if numero != 0:
+            ultimo = numero
+        qtdNumeros += 1
+    print(f'O primeiro número digitado foi: {primeiro}')
+    print(f'O último número digitado foi: {ultimo}')
+    print(f'A soma de todos os números digitados é = {soma}')
+    print(f'A quantidade de números digitados é = {qtdNumeros}')
 
 estructRepetitivas()
