@@ -172,5 +172,50 @@ def exerc10():
             print(i)
         i += 1
         
+def exerc11():
+    #Exercício 11 - DENTRO FORA - Leia um valor inteiro N. Este valor será a quantidade de valores inteiros X que serão lidos em seguida. 
+    #   Mostre quantos destes valores X estão dentro do intervalo [10,20] e quantos estão fora do intervalo.
+    qtdNum = int(input('Quantos números você vai digitar? '))
+    dentro = fora = 0
+    while qtdNum > 0:
+        num = int(input('Digite um número: '))
+        if num >= 10 and num <= 20:
+            dentro += 1
+        else:
+            fora += 1
+        
+        qtdNum -= 1
 
-exerc10()
+    print('VERIFICANDO QUANTOS DOS NÚMEROS DIGITADOS ESTÃO DENTRO DO INTERVALO [10,20]')
+    print(f'{dentro} DENTRO')
+    print(f'{fora} FORA')
+
+def exerc12():
+    #Exercício 12 -  PAR IMPAR - Leia um valor inteiro N. Este valor será a quantidade de números inteiros que serão lidos em seguida. 
+    #   Para cada valor lido, mostre uma mensagem dizendo se este valor lido é PAR ou IMPAR, e também se é POSITIVO ou NEGATIVO. 
+    #   No caso do valor ser igual a zero (0), seu programa deverá imprimir apenas NULO. 
+    qtdNum = int(input('Quantos números você vai digitar? '))
+    while qtdNum > 0:
+        num = int(input('Digite um número: '))
+        if num == 0:
+            print('NULO')
+        elif num > 0:
+            if num % 2 == 0:
+                print('PAR POSITIVO')
+            else:
+                print('IMPAR POSITIVO')
+        else:
+            if num % 2 == 0:
+                print('PAR NEGATIVO')
+            else:
+                print('IMPAR NEGATIVO')
+
+        qtdNum -= 1
+        
+def exerc13():
+    #Exercício 13 - MEDIA PONDERADA - Leia um valor inteiro N, que representa o número de casos de teste que vem a seguir. 
+    #   Cada caso de teste consiste de 3 valores reais, para os quais você deverá calcular e mostrar a média ponderada, sendo que o primeiro valor tem peso 2, 
+    #   o segundo valor tem peso 3 e o terceiro valor tem peso 5. Vale lembrar que a média ponderada é a soma de todos os valores multiplicados pelo seu respectivo peso, 
+    #   dividida pela soma dos pesos. 
+    print('Exerc 13')
+exerc13()
