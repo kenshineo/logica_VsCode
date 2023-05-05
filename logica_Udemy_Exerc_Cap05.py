@@ -137,27 +137,40 @@ def exerc9():
     #   A seguir, calcule e mostre a soma dos números impares entre eles. 
     x = int(input('Digite o valor do número X: '))
     y = int(input('Digite o valor do número Y: '))
-    i = impares = 0
+    acumulador = 0
+
+    #Verificando qual dos dois termos é o maior para tirar a diferença
     if x > y:
-        diferenca = x - y
-        p1 = x
+        maior = x
+        menor = y
     else:
-        diferenca = y - x
-        p1 = y
+        maior = y    
+        menor = x
+    
+    #Removendo as pontas, pois o exercício quer o cálculo dos valores "entre" os termos
+    if maior % 2 == 0:
+        maior -= 1
+    else:
+        maior -= 2
+    if menor % 2 == 0:
+        menor += 1
+    else:
+        menor += 2
 
-    print(f'X= {x} | Y= {y} | p1= {p1} | i = {i} | diferenca = {diferenca} | impares = {impares}')
-    while i <= diferenca:
-        if diferenca % 2 == 0:
-            p1 -= 1
-            i += 1
-            print(f'X= {x} | Y= {y} | p1= {p1} | i = {i} | diferenca = {diferenca} | impares = {impares}')
-        else:
-            impares += p1
-            p1 -= 2
-            i += 1
-            print(f'X= {x} | Y= {y} | p1= {p1} | i = {i} | diferenca = {diferenca} | impares = {impares}')
+    while menor <= maior:
+        acumulador += menor
+        menor += 2
 
-    print(f'SOMA DOS IMPARES = {impares}')
-    print('Com DEFEITO')
+    print(f'SOMA DOS IMPARES = {acumulador}')
 
-exerc9()
+def exerc10():
+    #Exercício 10 - SEQUENCIA IMPARES - Leia um valor inteiro X. Em seguida mostre os ímpares de 1 até X, um valor por linha, inclusive o X, se for o caso.
+    x = int(input('Digite o valor de X: '))
+    i = 1
+    while i <= x:
+        if i % 2 != 0:
+            print(i)
+        i += 1
+        
+
+exerc10()
