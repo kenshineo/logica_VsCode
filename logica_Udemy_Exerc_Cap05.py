@@ -216,6 +216,75 @@ def exerc13():
     #Exercício 13 - MEDIA PONDERADA - Leia um valor inteiro N, que representa o número de casos de teste que vem a seguir. 
     #   Cada caso de teste consiste de 3 valores reais, para os quais você deverá calcular e mostrar a média ponderada, sendo que o primeiro valor tem peso 2, 
     #   o segundo valor tem peso 3 e o terceiro valor tem peso 5. Vale lembrar que a média ponderada é a soma de todos os valores multiplicados pelo seu respectivo peso, 
-    #   dividida pela soma dos pesos. 
-    print('Exerc 13')
-exerc13()
+    #   dividida pela soma dos pesos.
+    n = int(input('Quantos casos você vai digitar? '))
+    PESO1 = 2
+    PESO2 = 3
+    PESO3 = 5
+    while n > 0:
+        print('Digite três números: ')
+        valor1 = float(input())
+        valor2 = float(input())
+        valor3 = float(input())
+        n -= 1
+        mediaPonderada = (valor1 * PESO1 + valor2 * PESO2 + valor3 * PESO3) / (PESO1 + PESO2 + PESO3)
+        print(f'MEDIA = {mediaPonderada:.1F}')
+
+def exerc14():
+    #Exercício 14 - DIVISAO - Escreva um algoritmo que leia dois números e imprima o resultado da divisão do primeiro pelo segundo. 
+    #   Caso não for possível, mostre a mensagem “DIVISAO IMPOSSIVEL”.
+    n = int(input('Quantos casos você vai digitar? '))
+    while n > 0:
+        numerador = int(input('Entre com o numerador: '))
+        denominador = int(input('Entre com o numerador: '))
+        if denominador == 0:
+            print('DIVISÃO IMPOSSÍVEL!')
+        else:
+            divisao = numerador / denominador
+            print(f'DIVISÃO {divisao:.2f}')
+        n -= 1
+
+def exerc15():
+    #Exercício 15 - FATORIAL - Fazer um programa para ler um número natural N (valor máximo: 15), e depois calcular e mostrar o fatorial de N. 
+    n = int(input('Digite o valor de N: '))
+    fatorial = 1
+    while n > 0:
+        fatorial *= n
+        n -= 1
+    print(f'FATORIAL = {fatorial}')
+
+def exerc16():
+    #Exercício 16 - EXPERIÊNCIAS - Maria acabou de iniciar seu curso de graduação na faculdade de medicina e precisa de sua ajuda para organizar os experimentos de um laboratório o qual ela é responsável. 
+    #   Ela quer saber no final do ano, quantas cobaias foram utilizadas no laboratório e o percentual de cada tipo de cobaia utilizada. Este laboratório em especial utiliza três tipos de cobaias: sapos, ratos e coelhos. 
+    #   Para obter estas informações, ela sabe exatamente o número de experimentos que foram realizados, o tipo de cobaia utilizada e a quantidade de cobaias utilizadas em cada experimento. 
+    #   Faça um programa que leia um valor inteiro N que indica os vários casos de teste que vem a seguir. Cada caso de teste contém um inteiro que representa a quantidade de cobaias utilizadas e uma letra ('C', 'R' ou 'S'), 
+    #   indicando o tipo de cobaia (R:Rato S:Sapo C:Coelho). Apresente o total de cobaias utilizadas, o total de cada tipo de cobaia utilizada e o percentual de cada uma em relação ao total de cobaias utilizadas, 
+    #   sendo que o percentual deve ser apresentado com dois dígitos após o ponto. 
+    n = int(input('Quantos casos de teste serão digitados: '))
+    total_cobaias = ratos = sapos = coelhos = 0
+    while n > 0:
+        cobaias = int(input('Quantidade de cobaias: '))
+        tipo = input('Tipo de cobaia: ')
+        match tipo:
+            case 'R':
+                ratos += cobaias
+            case 'S':
+                sapos += cobaias
+            case 'C':
+                coelhos += cobaias
+        total_cobaias = ratos + sapos + coelhos
+        n -= 1
+    perc_coelhos = (coelhos / total_cobaias) * 100
+    perc_ratos = (ratos / total_cobaias) * 100
+    perc_sapos = (sapos / total_cobaias) * 100
+    print('RELATÓRIO FINAL:')
+    print(f'Total: {total_cobaias} cobaias')
+    print(f'Total de coelhos: {coelhos}')
+    print(f'Total de ratos: {ratos}')
+    print(f'Total de sapos: {sapos}')
+    print(f'Percentual de coelhos: {perc_coelhos:.2f}')
+    print(f'Percentual de ratos: {perc_ratos:.2f}')
+    print(f'Percentual de sapos: {perc_sapos:.2f}')
+
+
+exerc16()
