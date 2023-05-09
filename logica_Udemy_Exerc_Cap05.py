@@ -253,4 +253,4 @@ def exerc16():
     print(f'Percentual de sapos: {perc_sapos:.2f}')
 
 
-exerc4()
+exerc16()
