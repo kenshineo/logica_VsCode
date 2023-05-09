@@ -102,13 +102,11 @@ def exerc7():
     #   por exempo, a saída deve ser 80, que é a soma de 12+14+16+18+20.
     x = int(input('Digite um número interiro: '))
     while x != 0:
-        i = 0
         soma = 0
-        while i < 5:
+        for i in range(5):
             if x % 2 == 0:
                 soma += x
                 x += 2
-                i += 1        
             else:
                 x += 1
         print(f'SOMA = {soma}, i = {i}, x = {x}')
@@ -255,4 +253,4 @@ def exerc16():
     print(f'Percentual de sapos: {perc_sapos:.2f}')
 
 
-exerc5()
+exerc4()
