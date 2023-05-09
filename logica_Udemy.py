@@ -193,6 +193,37 @@ def estructRepetitivas():
     print(f'A quantidade de números digitados é = {qtdNumeros}')
 
 def vetores():
+    # Vetores tem TAMANHO FIXO, devem ser alocados previamente, antes de serem utilizados. Uma vez alocados, sua quantidade de elementos é fixa.
+    # Também chamados de ARRANJOS (ARRAYs) unidimensionais.
+    # Ex.: vetorA = ['valor1','valor2','valor3','valorN']
+    # Os elementos do vetor podem ser acessados pelo seu index, começando pelo 0.
+    # Ex.: print(vetorA[0]) --> output: valor1
     print('VETORES')
-
+    vetorA = ['valor1','valor2','valor3']
+    print('O Primeiro valor do vetorA é = ', vetorA[0])  #output valor1
+    print('Este é o vetorA = ', vetorA)  #output ['valor1', 'valor2', 'valor3']
+    #Trabalhando com VETORES
+    vetorA[0] = 'valorX'
+    print('Este é o vetorA = ', vetorA)  #output ['valorX', 'valor2', 'valor3']
+    # No exemplo anterior a posição 0 do vetorA teve seu valor alterado.
+    # Para inserir dados em um vetor já criado utilizamos o método .append() e para remover elementos em um vetor utilizamos o método .pop().
+    # Exercício fixação - Fazer um programa para ler um número inteiro positivo N (máximo = 10), depois ler N números quaisquer e armazená-los em um vetor.
+    #   Em seguida, mostrar na tela todos os elementos do vetor
+    n = int(input('Quantos números você vai digitar? '))
+    vetorExercicio = ['','','','','','','','','',''] # Definindo um vetor de 10 posições, não importa o tipo em PYTHON, pode ser alterado em qualquer atribuição
+    for i in range(n):
+        vetorExercicio[i] = int(input('Digite um número: '))
+    print(f'O vetor criado é = {vetorExercicio}')
+    #   Agora o mesmo exercício anterior porém com uso do .append()
+    vetorExercicio = [] # Definindo um vetor vazio, o método .append() se encarregará de encher a quantidade necessária
+    for i in range(n):
+        vetorExercicio.append(int(input('Digite um número: ')))
+    print(f'O vetor criado é = {vetorExercicio}')
+    #   A função len() verifica o tamanho do vetor, quantidade de posições que existem nele
+    print(f'O vetor tem {len(vetorExercicio)} posições')
+    #   Agora exemplo de uso do método .pop(), vamos remover o primeiro item do vetor
+    vetorExercicio.pop(0) # Remove o item de posição 0 do vetor
+    print(f'O vetor criado é = {vetorExercicio}')
+    print(f'O vetor tem {len(vetorExercicio)} posições')
+     
 vetores()
