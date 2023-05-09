@@ -192,4 +192,7 @@ def estructRepetitivas():
     print(f'A soma de todos os números digitados é = {soma}')
     print(f'A quantidade de números digitados é = {qtdNumeros}')
 
-estructRepetitivas()
+def vetores():
+    print('VETORES')
+
+vetores()
